@@ -50,7 +50,7 @@ def counts_by_name_from_fasta(in_fasta):
 #       Header information is destroyed and a new unqiue indicator in its place
 # Modifies: file IO
 
-def fasta_to_unique_name_fasta(in_fasta,out_fasta):
+def fasta_to_unique_name_fasta(in_fasta):
   ofile=open(out_fasta,'w')
   i = 0
   with open(in_fasta) as f:
