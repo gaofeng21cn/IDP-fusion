@@ -50,7 +50,7 @@ def counts_by_name_from_fasta(in_fasta):
 #       Header information is destroyed and a new unqiue indicator in its place
 # Modifies: file IO
 
-def fasta_to_unique_name_fasta(in_fasta):
+def fasta_to_unique_name_fasta(in_fasta, out_fasta):
   ofile=open(out_fasta,'w')
   i = 0
   with open(in_fasta) as f:
@@ -101,7 +101,7 @@ def write_fastq_subset(in_fastq,names,out_fastq):
       l2 = f.readline().rstrip()
       l3 = f.readline().rstrip()
       l4 = f.readline().rstrip()
-      m = re.match('^@([\S]+)')
+      m = re.match('^@([\S]+)', l1)
       name = ''
       if m: name = m.group(1)
       if name in nameset:
@@ -115,7 +115,7 @@ def write_fastq_subset(in_fastq,names,out_fastq):
 # post: Dictionary containing read names and the number of times present
 #       name is the first non-whitespace, not the whole header
 # Modifies: none
-def counts_by_name_from_fastq(in_fastq,out_fastq):
+def counts_by_name_from_fastq(in_fastq):
   reads = {}
   with open(in_fastq) as f:
     while True:
@@ -125,7 +125,7 @@ def counts_by_name_from_fastq(in_fastq,out_fastq):
       l2 = f.readline().rstrip()
       l3 = f.readline().rstrip()
       l4 = f.readline().rstrip()
-      m = re.match('@([\S]+)')
+      m = re.match('@([\S]+)', l1)
       if m:
         if not m.group(1) in reads:
           reads[m.group(1)] = 0
