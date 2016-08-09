@@ -31,7 +31,7 @@ def main():
   genome_bowtie2_index = ''
   if len(sys.argv) >= 7:  genome_bowtie2_index = sys.argv[6]
   transcriptome_bowtie2_index = ''
-  if len(sys.argv) == 8: transcriptome_bowtie2_index = sys.argv[7]
+  #if len(sys.argv) == 8: transcriptome_bowtie2_index = sys.argv[7]
 
   if not os.path.isdir(temp_foldername):
     print "Error:  Expecting a temporary folder that already exists."
