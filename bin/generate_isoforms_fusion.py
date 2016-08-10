@@ -787,8 +787,7 @@ def parse_cigar(line_ls):
     
     if (abs(read_len - READ_LEN) > read_len_margin):
         read_len_list = []
-    if ((read_len_list[0] < READ_JUNC_MIN_MAP_LEN) or
-        (read_len_list[-1] < READ_JUNC_MIN_MAP_LEN)):
+    elif ((read_len_list[0] < READ_JUNC_MIN_MAP_LEN) or (read_len_list[-1] < READ_JUNC_MIN_MAP_LEN)):
         read_len_list = []
     
     return read_len_list
